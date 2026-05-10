@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Sports Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #16a34a;
+      --green-bright: #22c55e;
+      --green-dark: #052e16;
+      --off-white: #f5f2eb;
+      --ink: #0d0d0d;
+      --muted: #6b6b6b;
+      --border: #e0dbd0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: white;
+      padding: 3.5rem 2rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.04) 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.04) 60px
+      );
+    }
+    .header-inner { position: relative; max-width: 700px; margin: 0 auto; }
+    .header-tag {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+    header h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    header h1 span { color: var(--green-bright); }
+    header p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      margin: 0 auto 1.8rem;
+    }
+    .header-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .header-links a {
+      display: inline-block;
+      padding: 9px 22px;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.18s;
+    }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-primary:hover { background: var(--green-bright); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.3); color: white; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── NAV TABS ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      border-bottom: 2px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    nav a {
+      flex-shrink: 0;
+      padding: 1rem 1.4rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.18s;
+    }
+    nav a:hover { color: var(--ink); }
+    nav a.active { color: var(--green); border-bottom-color: var(--green); }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .section-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 540px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-photo {
+      aspect-ratio: 3/4;
+      background: #d1fae5;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      border: 1px dashed #86efac;
+    }
+    .about-body p { margin-bottom: 1rem; font-size: 1.02rem; }
+    .skills-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.8rem; }
+    .skill-tag {
+      background: var(--ink);
+      color: white;
+      padding: 5px 14px;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── CARDS ── */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .card-type {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+    }
+    .card h3 { font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.92rem; color: #444; line-height: 1.6; }
+    .card-link {
+      display: inline-block;
+      margin-top: 1.1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid var(--green);
+      transition: opacity 0.15s;
+    }
+    .card-link:hover { opacity: 0.7; }
+
+    /* ── FEATURED BLOCK ── */
+    .featured {
+      background: var(--ink);
+      color: white;
+      border-radius: 4px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 600px) { .featured { grid-template-columns: 1fr; } }
+    .featured .badge {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .featured h3 { font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .featured p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.65; }
+    .featured-stat { text-align: center; }
+    .featured-stat .big { font-family: 'Oswald', sans-serif; font-size: 3.5rem; font-weight: 700; color: var(--green-bright); line-height: 1; }
+    .featured-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+    /* ── COACHING ── */
+    .coaching-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+    @media (max-width: 600px) { .coaching-highlights { grid-template-columns: 1fr; } }
+    .stat-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .stat-box .num { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--green); }
+    .stat-box .desc { font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
+
+    /* ── TRAVEL ── */
+    .travel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .travel-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.18s;
+    }
+    .travel-card:hover { transform: translateY(-3px); }
+    .travel-img {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .travel-info { padding: 0.8rem; }
+    .travel-info h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; }
+    .travel-info p { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--ink); color: white; max-width: 100%; padding: 0; }
+    .contact-inner { max-width: 900px; margin: 0 auto; padding: 4.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    @media (max-width: 600px) { .contact-inner { grid-template-columns: 1fr; } }
+    #contact .section-label { color: var(--green-bright); }
+    #contact .section-title { color: white; }
+    #contact .section-sub { color: rgba(255,255,255,0.55); }
+    .contact-links { display: flex; flex-direction: column; gap: 14px; margin-top: 0.5rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.15s;
+    }
+    .contact-link:hover { color: var(--green-bright); }
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .looking-for {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+    .looking-for h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; color: white; }
+    .looking-for ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .looking-for li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+    .looking-for li::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer { background: #070f0a; color: rgba(255,255,255,0.3); text-align: center; padding: 1.4rem 2rem; font-size: 0.8rem; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ─────────────── HEADER ─────────────── -->
+  <header>
+    <div class="header-inner">
+      <div class="header-tag">Sports &amp; Esports Marketing</div>
+      <h1>Your <span>Name</span><br>Here</h1>
+      <p>Recent university graduate passionate about football marketing, fan engagement, and the business of sport.</p>
+      <div class="header-links">
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+        <a href="YOUR_CV_LINK_HERE" class="btn-ghost" target="_blank">Download CV</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────────── NAV ─────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#about" class="active">About</a>
+      <a href="#football">Football &amp; Marketing</a>
+      <a href="#esports">Esports</a>
+      <a href="#travel">Travel</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ─────────────── ABOUT ─────────────── -->
+  <section id="about">
+    <div class="section-label">Who I Am</div>
+    <div class="section-title">About Me</div>
+    <p class="section-sub">A little bit about my background and what I'm looking for.</p>
+
+    <div class="about-grid reveal">
+      <div class="about-photo">Your Photo Here</div>
+      <div class="about-body">
+        <p>
+          Hi! I'm <strong>[Your Name]</strong>, a [Your Degree] graduate from [Your University], with a deep passion for sports marketing — especially football. I'm driven by the intersection of fan culture, digital content, and commercial strategy.
+        </p>
+        <p>
+          My dissertation explored fan engagement in football, diving into how clubs and brands build communities and loyalty in a digital-first world. I'm now channelling that research into written content and video analysis on financial issues in football.
+        </p>
+        <p>
+          Outside of football, I coach Rocket League competitively and have a love for travel — both of which have sharpened my communication skills, strategic thinking, and cultural awareness.
+        </p>
+        <p>
+          I'm currently looking for opportunities in <strong>sports marketing, fan engagement, content, and commercial roles</strong> — ideally in football but open to wider sports and esports.
+        </p>
+        <div class="skills-row">
+          <span class="skill-tag">Fan Engagement</span>
+          <span class="skill-tag">Content Strategy</span>
+          <span class="skill-tag">Sports Marketing</span>
+          <span class="skill-tag">Social Media</span>
+          <span class="skill-tag">Research &amp; Analysis</span>
+          <span class="skill-tag">Esports</span>
+          <span class="skill-tag">Coaching</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── FOOTBALL ─────────────── -->
+  <section id="football">
+    <div class="section-label">My Focus Area</div>
+    <div class="section-title">Football &amp; Marketing</div>
+    <p class="section-sub">Research, content, and analysis at the intersection of football and business.</p>
+
+    <!-- Featured: Dissertation -->
+    <div class="featured reveal">
+      <div>
+        <div class="badge">📄 Dissertation</div>
+        <h3>Fan Engagement in Football</h3>
+        <p>
+          My final year dissertation examined how football clubs leverage digital platforms, community initiatives, and content to build genuine fan engagement. I explored case studies from across the Premier League and European football, analysing what separates clubs that truly connect with fans from those that don't. <!-- Add a sentence or two more about your specific findings/angle here -->
+        </p>
+        <a href="#" class="card-link" style="color: var(--green-bright); border-color: var(--green-bright);">Read the Summary →</a>
+      </div>
+      <div class="featured-stat">
+        <div class="big">1st</div>
+        <div class="label">Class / Merit<br>(Update this)</div>
+      </div>
+    </div>
+
+    <!-- Content Cards -->
+    <div class="card-grid">
+      <div class="card reveal">
+        <div class="card-type">📝 Article / Video</div>
+        <h3>Your First Football Finance Piece</h3>
+        <p>A short description of what this article or video covers. For example: an analysis of club spending in the Championship and what it means for promotion battles.</p>
+        <a href="#" class="card-link">Read More →</a>
+      </div>
+      <div class="card reveal">
+        <div class="card-type">📝 Article / Video</div>
+        <h3>Your Second Piece</h3>
+        <p>Describe your second article or video here. What angle did you take? What made it interesting? Keep it punchy — two or three sentences.</p>
+        <a href="#" class="card-link">Watch / Read →</a>
+      </div>
+      <div class="card reveal">
+        <div class="card-type">💡 Coming Soon</div>
+        <h3>More Content On the Way</h3>
+        <p>I'm regularly publishing new pieces on football finance, fan culture, and sports marketing. Follow along on LinkedIn or YouTube to stay updated.</p>
+        <a href="#" class="card-link">Follow on LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── ESPORTS ─────────────── -->
+  <section id="esports">
+    <div class="section-label">Esports</div>
+    <div class="section-title">Rocket League Coaching</div>
+    <p class="section-sub">Applying a coaching mindset and strategic thinking to competitive gaming.</p>
+
+    <div class="coaching-highlights reveal">
+      <div class="stat-box">
+        <div class="num">🎮</div>
+        <div class="desc">Rank / Level<br>(e.g. Grand Champion)</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">50+</div>
+        <div class="desc">Players Coached<br>(Update this)</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">X hrs</div>
+        <div class="desc">Coaching Sessions<br>Delivered</div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card reveal">
+        <div class="card-type">🏆 Coaching</div>
+        <h3>Who I've Coached</h3>
+        <p>Describe your coaching experience here — what ranks, what focus areas (mechanics, rotation, game sense), and any notable results or player improvements you're proud of.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-type">📊 Strategy</div>
+        <h3>How I Approach the Game</h3>
+        <p>Talk about your analytical approach to Rocket League — breaking down replays, building custom training, or understanding team dynamics. This also shows your analytical skills to employers.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-type">🔗 Esports Marketing</div>
+        <h3>The Esports Industry</h3>
+        <p>Your thoughts on how esports marketing overlaps with your sports marketing ambitions — audience development, brand partnerships, community building in gaming.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── TRAVEL ─────────────── -->
+  <section id="travel">
+    <div class="section-label">Life Outside Sport</div>
+    <div class="section-title">Travel</div>
+    <p class="section-sub">Places I've been, things I've seen, and what they've taught me.</p>
+
+    <div class="travel-grid reveal">
+      <!-- Add or remove cards for each place you've visited -->
+      <div class="travel-card">
+        <div class="travel-img" style="background:#ecfdf5;">🇯🇵</div>
+        <div class="travel-info">
+          <h4>Japan</h4>
+          <p>What you did / loved about it</p>
+        </div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-img" style="background:#fff7ed;">🇪🇸</div>
+        <div class="travel-info">
+          <h4>Spain</h4>
+          <p>What you did / loved about it</p>
+        </div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-img" style="background:#f0f9ff;">🇳🇱</div>
+        <div class="travel-info">
+          <h4>Netherlands</h4>
+          <p>What you did / loved about it</p>
+        </div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-img" style="background:#fef2f2;">🇮🇹</div>
+        <div class="travel-info">
+          <h4>Italy</h4>
+          <p>What you did / loved about it</p>
+        </div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-img" style="background:#f5f3ff;">🌍</div>
+        <div class="travel-info">
+          <h4>Add Your Place</h4>
+          <p>Copy this card for each destination</p>
+        </div>
+      </div>
+      <div class="travel-card">
+        <div class="travel-img" style="background:#fef9c3;">✈️</div>
+        <div class="travel-info">
+          <h4>Next Stop: TBC</h4>
+          <p>Where are you heading next?</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem; background: white; border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;" class="reveal">
+      <p style="font-size: 0.95rem; color: #444;">
+        ✍️ <em>Add a short paragraph here about what travel means to you — how it's developed your perspective, cultural curiosity, or communication skills. Employers love seeing self-awareness in candidates.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─────────────── CONTACT ─────────────── -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div>
+        <div class="section-label">Get in Touch</div>
+        <div class="section-title">Let's Work Together</div>
+        <p class="section-sub">I'm actively looking for opportunities in sports and esports marketing. Don't hesitate to reach out.</p>
+
+        <div class="contact-links">
+          <a href="mailto:your@email.com" class="contact-link">
+            <div class="contact-icon">✉️</div>
+            your@email.com
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+            <div class="contact-icon">in</div>
+            linkedin.com/in/yourprofile
+          </a>
+          <a href="https://twitter.com/yourhandle" class="contact-link" target="_blank">
+            <div class="contact-icon">𝕏</div>
+            @yourhandle
+          </a>
+          <a href="YOUR_CV_LINK" class="contact-link" target="_blank">
+            <div class="contact-icon">📄</div>
+            Download my CV
+          </a>
+        </div>
+      </div>
+
+      <div class="looking-for reveal">
+        <h4>What I'm Looking For</h4>
+        <ul>
+          <li>Football club marketing &amp; communications roles</li>
+          <li>Sports content creation &amp; strategy</li>
+          <li>Fan engagement &amp; community management</li>
+          <li>Esports marketing &amp; partnerships</li>
+          <li>Sports media &amp; journalism</li>
+          <li>Graduate schemes in sport &amp; media</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Your Name · Built with purpose · Open to opportunities
+  </footer>
+
+  <script>
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => ro.observe(r));
+
+    // Smooth scroll for nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
