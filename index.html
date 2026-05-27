@@ -358,7 +358,45 @@
 
     /* ── CONTACT ── */
     #contact { background: var(--ink); color: white; max-width: 100%; padding: 0; }
-    .contact-inner { max-width: 900px; margin: 0 auto; padding: 4.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .contact-hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5.5rem 2rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .contact-headline {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.05;
+      color: white;
+      margin: 0.6rem 0 1.2rem;
+    }
+    .contact-headline span { color: var(--green-bright); }
+    .contact-tagline {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+    .contact-cta-btn {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 3px;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .contact-cta-btn:hover { background: var(--green-bright); transform: translateY(-2px); }
+    .contact-inner { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 4.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     @media (max-width: 600px) { .contact-inner { grid-template-columns: 1fr; } }
     #contact .section-label { color: var(--green-bright); }
     #contact .section-title { color: white; }
@@ -409,7 +447,7 @@
   <!-- ─────────────── HEADER ─────────────── -->
   <header>
     <div class="header-inner">
-      <div class="header-tag">Marketing · Finance · Creator Strategy</div>
+      <div class="header-tag">Marketing · Finance · Commercial Strategy</div>
       <h1>Lloyd <span>Gauld</span></h1>
       <p>Business Management graduate. Analytical, commercially minded, and genuinely excited about roles in finance, sports marketing, and creator management.</p>
       <div class="header-links">
@@ -443,13 +481,13 @@
           Hi, I'm <strong>Lloyd</strong> — a Business Management with Marketing graduate from Edinburgh Napier University. I'm analytical and commercially minded, with a genuine interest in how organisations grow, connect with audiences, and create value.
         </p>
         <p>
-          My dissertation gave me hands-on experience in qualitative and quantitative research, stakeholder analysis, and turning data into real insight — skills that translate well to roles in finance, strategy, and commercial management. I looked at fan engagement across the Scottish Football Pyramid and found that ownership model is the single biggest driver of genuine community connection.
+          My dissertation gave me hands-on experience in qualitative and quantitative research, stakeholder analysis, and turning data into real insight — skills that translate well to roles in finance, strategy, and commercial management. I looked at fan engagement across the Scottish Football Pyramid and found that ownership model is the single biggest driver of Fan Engagement.
         </p>
         <p>
-          I also run a coaching business in competitive esports — managing clients, building content, and growing an audience from the ground up, giving me real first-hand experience of the creator economy and what it actually takes to build a brand.
+          I also run a coaching business in competitive esports — marketing myself, managing clients, building content, and growing an audience from the ground up. Everything from personal branding and social media promotion to client acquisition has been self-run.
         </p>
         <p>
-          I'm open to roles in <strong>finance and commercial analysis, sports and esports marketing, content strategy, and creator or talent management</strong>. I've got strong research skills, communicate clearly, and have a solid track record of working independently.
+          I'm open to roles in <strong>finance and commercial analysis, sports and esports marketing, and content strategy</strong>. I've got strong research skills, communicate clearly, and have a solid track record of working independently.
         </p>
         <div class="skills-row">
           <span class="skill-tag">Research &amp; Analysis</span>
@@ -457,10 +495,7 @@
           <span class="skill-tag">Content Strategy</span>
           <span class="skill-tag">Financial Analysis</span>
           <span class="skill-tag">Sports Marketing</span>
-          <span class="skill-tag">Creator Management</span>
-          <span class="skill-tag">Fan Engagement</span>
-          <span class="skill-tag">Communication</span>
-          <span class="skill-tag">Esports</span>
+          <span class="skill-tag">Esports Marketing</span>
         </div>
       </div>
     </div>
@@ -470,7 +505,7 @@
   <section id="football">
     <div class="section-label">Selected Work</div>
     <div class="section-title">Projects &amp; Research</div>
-    <p class="section-sub">Research, analysis, and content across sport, finance, and the creator economy.</p>
+    <p class="section-sub">Research I have completed across sport, esports, and finance.</p>
 
     <!-- Featured: Dissertation -->
     <div class="featured reveal">
@@ -483,50 +518,30 @@
         <a href="40317142%20-%20GAULD.pdf" class="card-link" download style="color: var(--green-bright); border-color: var(--green-bright);">Download my Dissertation →</a>
       </div>
       <div class="featured-stat">
-        <div class="big">1st</div>
-        <div class="label">Class / Merit<br>(Update this)</div>
+        <div class="big">?%</div>
+        <div class="label">Class / Merit<br>Pending Result</div>
       </div>
     </div>
 
-    <!-- Content Cards -->
-    <div class="card-grid">
-      <div class="card reveal">
-        <div class="card-type">📊 Finance &amp; Analysis</div>
-        <h3>Football Finance Content</h3>
-        <p>Written and video analysis on the business of football — club finances, ownership models, transfer economics, and what the numbers actually mean for the sport.</p>
-        <a href="#" class="card-link">Coming Soon →</a>
-      </div>
-      <div class="card reveal">
-        <div class="card-type">🎬 Creator Economy</div>
-        <h3>Creator &amp; Talent Management</h3>
-        <p>Running my own esports coaching brand has given me direct experience of content strategy, audience growth, and platform monetisation. I'm interested in applying this commercially in creator and talent management roles.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-type">💡 More Work</div>
-        <h3>Content &amp; Analysis Ongoing</h3>
-        <p>I'm building out a portfolio of analysis pieces covering sport, finance, and the creator industry. Follow on LinkedIn to stay updated as new work goes live.</p>
-        <a href="https://linkedin.com/in/lloyd-gauld-057988296/" class="card-link" target="_blank" rel="noopener">Follow on LinkedIn →</a>
-      </div>
-    </div>
   </section>
 
   <!-- ─────────────── ESPORTS ─────────────── -->
   <section id="esports">
     <div class="section-label">Esports</div>
     <div class="section-title">Rocket League Coaching</div>
-    <p class="section-sub">Applying a coaching mindset and strategic thinking to competitive gaming.</p>
+    <p class="section-sub">My work in coaching and competitive gaming.</p>
 
     <div class="coaching-highlights reveal">
       <div class="stat-box">
         <div class="num">🎮</div>
-        <div class="desc">EX Pro Player and Coach<br> Roehampton University</div>
+        <div class="desc">Ex Pro Player and Coach<br> Roehampton University</div>
       </div>
       <div class="stat-box">
         <div class="num">50+</div>
         <div class="desc">Players Coached<br></div>
       </div>
       <div class="stat-box">
-        <div class="num">100+</div>
+        <div class="num">500+</div>
         <div class="desc">Coaching Sessions<br>Delivered</div>
       </div>
     </div>
@@ -535,17 +550,17 @@
       <div class="card reveal">
         <div class="card-type">🏆 Coaching</div>
         <h3>Who I've Coached</h3>
-        <p>Describe your coaching experience here — what ranks, what focus areas (mechanics, rotation, game sense), and any notable results or player improvements you're proud of.</p>
+        <p>I've coached over 50 players across all skill levels — including a world champion, and multiple players who've gone on to compete at the top level in Europe. I also coached Roehampton University's Rocket League team to victory in the top European university competition.</p>
       </div>
       <div class="card reveal">
         <div class="card-type">📊 Strategy</div>
         <h3>How I Approach the Game</h3>
-        <p>Talk about your analytical approach to Rocket League — breaking down replays, building custom training, or understanding team dynamics. This also shows your analytical skills to employers.</p>
+        <p>My coaching is built around replay analysis and structured feedback — identifying patterns in decision-making rather than just mechanical errors. I break sessions down by rotation, positioning, and game sense, and tailor training to each player's specific weaknesses. It's the same analytical mindset I apply to everything else: understand the data, find the real problem, fix it.</p>
       </div>
       <div class="card reveal">
         <div class="card-type">🔗 Esports Marketing</div>
         <h3>The Esports Industry</h3>
-        <p>Your thoughts on how esports marketing overlaps with your sports marketing ambitions — audience development, brand partnerships, community building in gaming.</p>
+        <p>Esports is still figuring out its commercial model, and that's what makes it interesting. The audience is highly engaged but hard to monetise through traditional routes — which pushes organisations to get creative with brand partnerships, community building, and content. Having been inside the scene as a player, coach, and creator, I've seen first-hand how the best brands earn trust rather than just buy attention.</p>
       </div>
     </div>
 
@@ -586,7 +601,7 @@
         <div class="travel-img" style="background:#ecfdf5;">🇨🇳</div>
         <div class="travel-info">
           <h4>China</h4>
-          <p>What you did / loved about it</p>
+          <p>2025</p>
           <span class="travel-hint">▶ Watch</span>
         </div>
         <div class="travel-video"></div>
@@ -595,7 +610,7 @@
         <div class="travel-img" style="background:#fff7ed;">🇮🇩</div>
         <div class="travel-info">
           <h4>Indonesia</h4>
-          <p>What you did / loved about it</p>
+          <p>2024</p>
           <span class="travel-hint">▶ Watch</span>
         </div>
         <div class="travel-video"></div>
@@ -604,7 +619,7 @@
         <div class="travel-img" style="background:#f0f9ff;">🇦🇱</div>
         <div class="travel-info">
           <h4>Albania</h4>
-          <p>What you did / loved about it</p>
+          <p>2023</p>
           <span class="travel-hint">▶ Watch</span>
         </div>
         <div class="travel-video"></div>
@@ -613,7 +628,7 @@
         <div class="travel-img" style="background:#fef2f2;">🇻🇳</div>
         <div class="travel-info">
           <h4>Vietnam</h4>
-          <p>What you did / loved about it</p>
+          <p>2024</p>
           <span class="travel-hint">▶ Watch</span>
         </div>
         <div class="travel-video"></div>
@@ -622,7 +637,7 @@
         <div class="travel-img" style="background:#f5f3ff;">🇹🇭</div>
         <div class="travel-info">
           <h4>Thailand</h4>
-          <p>What you did / loved about it</p>
+          <p>2024</p>
           <span class="travel-hint">▶ Watch</span>
         </div>
         <div class="travel-video"></div>
@@ -631,7 +646,7 @@
         <div class="travel-img" style="background:#fef9c3;">🇲🇪</div>
         <div class="travel-info">
           <h4>Montenegro</h4>
-          <p>What you did / loved about it</p>
+          <p>2023</p>
           <span class="travel-hint">▶ Watch</span>
         </div>
         <div class="travel-video"></div>
@@ -640,7 +655,7 @@
 
     <div style="margin-top: 2rem; background: white; border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem;" class="reveal">
       <p style="font-size: 0.95rem; color: #444;">
-        Every trip above was researched, budgeted, and planned by me from scratch — no packages, no tours. Travelling solo has done a lot for my problem-solving, adaptability, and ability to handle the unexpected.
+        Every trip above was researched, budgeted, and planned by me from scratch. Travelling has done a lot for my problem-solving, adaptability, and ability to handle the unexpected.
       </p>
       <p style="font-size: 0.82rem; color: var(--muted); margin-top: 0.8rem;">
         🎬 Travel videos coming soon — click any destination card to watch when they're live.
@@ -650,12 +665,15 @@
 
   <!-- ─────────────── CONTACT ─────────────── -->
   <section id="contact">
+    <div class="contact-hero reveal">
+      <div class="section-label">Get in Touch</div>
+      <div class="contact-headline">Let's Work <span>Together</span></div>
+      <p class="contact-tagline">I'm actively looking for graduate opportunities across finance, marketing, and esports. Feel free to reach out — I'd love to chat.</p>
+      <a href="mailto:mail@lloydgauld.com" class="contact-cta-btn">Email Me →</a>
+    </div>
     <div class="contact-inner">
       <div>
-        <div class="section-label">Get in Touch</div>
-        <div class="section-title">Let's Work Together</div>
-        <p class="section-sub">I'm actively looking for graduate opportunities across finance, marketing, and the creator industry. Feel free to reach out — I'd love to chat.</p>
-
+        <div class="section-label">Other Ways to Reach Me</div>
         <div class="contact-links">
           <a href="mailto:mail@lloydgauld.com" class="contact-link">
             <div class="contact-icon">✉️</div>
@@ -664,10 +682,6 @@
           <a href="https://linkedin.com/in/lloyd-gauld-057988296/" class="contact-link" target="_blank">
             <div class="contact-icon">in</div>
             linkedin.com/in/lloyd-gauld-057988296/
-          </a>
-          <a href="https://twitter.com/Freecant" class="contact-link" target="_blank">
-            <div class="contact-icon">𝕏</div>
-            @Freecant
           </a>
           <a href="CV_Lloyd_Gauld_Final.pdf" class="contact-link" target="_blank">
             <div class="contact-icon">📄</div>
@@ -682,7 +696,6 @@
           <li>Graduate schemes in finance &amp; commercial strategy</li>
           <li>Financial analysis &amp; research roles</li>
           <li>Sports &amp; esports marketing</li>
-          <li>Creator / talent / influencer management</li>
           <li>Content strategy &amp; fan engagement</li>
           <li>Business development in sport or media</li>
         </ul>
