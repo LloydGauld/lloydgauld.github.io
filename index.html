@@ -356,6 +356,24 @@
     .profile-link-card h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
     .profile-link-card p { font-size: 0.78rem; color: var(--muted); }
 
+    /* ── X / TWITTER ── */
+    .x-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .x-block h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.9rem;
+    }
+    .x-timeline-wrap { max-height: 600px; overflow-y: auto; }
+
     /* ── CONTACT ── */
     #contact { background: var(--ink); color: white; max-width: 100%; padding: 0; }
     .contact-hero {
@@ -520,6 +538,18 @@
       <div class="featured-stat">
         <div class="big">?%</div>
         <div class="label">Class / Merit<br>Pending Result</div>
+      </div>
+    </div>
+
+    <!-- On X -->
+    <div class="section-label" style="margin-top: 3rem;">On X</div>
+    <div class="section-title" style="font-size: clamp(1.4rem, 3vw, 2rem);">Football Content</div>
+    <p class="section-sub">My latest activity on X.</p>
+
+    <div class="x-block reveal">
+      <h4>Latest from @LloydData</h4>
+      <div class="x-timeline-wrap">
+        <a class="twitter-timeline" data-height="500" data-theme="light" href="https://twitter.com/LloydData?ref_src=twsrc%5Etfw">Tweets by @LloydData</a>
       </div>
     </div>
 
@@ -763,5 +793,8 @@
       });
     });
   </script>
+
+  <!-- X (Twitter) widgets, used by the carousel and timeline embed in Projects -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
